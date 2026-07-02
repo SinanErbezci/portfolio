@@ -1,0 +1,21 @@
+.section {
+  padding: var(--space-2xl) 0;
+}
+
+.section-title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--fw-bold);
+  margin-bottom: var(--space-lg);
+}
+
+.text-muted {
+  color: var(--color-text-light);
+}
+
+.shadow-card {
+  box-shadow: var(--shadow-sm);
+}
+
+.rounded-lg {
+  border-radius: var(--radius-lg);
+}

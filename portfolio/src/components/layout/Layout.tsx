@@ -1,14 +1,14 @@
 import { Outlet } from "react-router-dom";
 
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Navbar from "./Navbar/Navbar";
+import Footer from "./Footer/Footer";
 
 export default function Layout() {
   return (
     <div className="d-flex flex-column min-vh-100">
       <Navbar />
 
-      <main className="container flex-grow-1 py-5">
+      <main className="flex-grow-1">
         <Outlet />
       </main>
 
