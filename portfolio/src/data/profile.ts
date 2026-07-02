@@ -1,4 +1,9 @@
-import type {Profile} from "../types/profile";
+export interface Profile {
+    name: string;
+    headline: string;
+    degrees: string[];
+    summary: string;
+}
 
 export const profile: Profile = {
     name: "Sinan Erbezci",

@@ -1,5 +1,5 @@
 import profileImage from "../../assets/images/profile.jpg";
-import Section from "../../components/Section/Section";
+import Section from "../../components/common/Section/Section";
 import { profile } from "../../data/profile";
 
 import styles from "./Hero.module.css";

@@ -1,8 +1,7 @@
 .footer {
   margin-top: auto;
 
-  padding: 2rem 0;
-
+  padding: var(--space-6) 0;
 }
 
 .copyright {
@@ -10,7 +9,7 @@
 
   text-align: center;
 
-  color: var(--color-text-muted);
+  color: var(--color-muted);
 
-  font-size: 0.9rem;
+  font-size: var(--font-sm);
 }

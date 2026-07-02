@@ -4,9 +4,8 @@
 
   align-items: start;
 
-  gap: 5rem;
+  gap: var(--space-9);
 
-  min-height: calc(100vh - 72px);
 }
 
 .content {
@@ -15,53 +14,53 @@
 }
 
 .greeting {
-  font-size: 1rem;
+  font-size: var(--font-base);
   color: var(--color-text-muted);
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-2);
 }
 
 .name {
   font-size: clamp(3.5rem, 8vw, 5.5rem);
   line-height: 1;
-  font-weight: 700;
+  font-weight: var(--fw-bold);
   letter-spacing: -0.04em;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-5);
 }
 
 .headline {
   display: inline-block;
   align-self: flex-start;
 
-  padding: 0.5rem 1rem;
+  padding: var(--space-2) var(--space-4);
 
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-5);
 
   border: 1px solid var(--color-border);
-  border-radius: 999px;
+  border-radius: var(--radius-full);
 
   background: var(--color-surface);
 
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: var(--font-sm);
+  font-weight: var(--fw-semibold);
 }
 
 .education {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-5);
 }
 
 .education p {
   margin: 0;
   color: var(--color-text-muted);
-  font-size: 1rem;
+  font-size: var(--font-base);
 }
 
 .summary {
-  max-width: 620px;
+  max-width: 560px;
 
-  margin-bottom: 2.5rem;
+  margin-bottom: var(--space-7);
 
-  font-size: 1.15rem;
-  line-height: 1.8;
+  font-size: var(--font-lg);
+  line-height: var(--line-height-loose);
 }
 
 .actions {
@@ -71,16 +70,20 @@
 
 .primaryButton,
 .secondaryButton {
-  padding: 0.9rem 1.6rem;
+  padding:
+    var(--button-padding-y) var(--button-padding-x);
 
-  border-radius: 12px;
+  border-radius: var(--radius-md);
 
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: var(--font-sm);
+
+  font-weight: var(--fw-semibold);
 
   cursor: pointer;
 
-  transition: all 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .primaryButton {
@@ -111,19 +114,20 @@
 
 .image {
   width: 360px;
+
   aspect-ratio: 4 / 5;
 
   object-fit: cover;
 
-  border-radius: 24px;
+  border-radius: var(--radius-xl);
 
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-lg);
 }
 
 @media (max-width: 992px) {
   .hero {
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: var(--space-8);
     text-align: center;
   }
 

@@ -1,5 +1,7 @@
 :root {
-  /* ========= Colors ========= */
+  /* ==========================================================
+     Colors
+     ========================================================== */
 
   --color-background: #ffffff;
   --color-surface: #f8fafc;
@@ -11,7 +13,10 @@
 
   --color-accent: #2563eb;
 
-  /* ========= Typography ========= */
+
+  /* ==========================================================
+     Typography
+     ========================================================== */
 
   --font-family:
     "Inter",
@@ -21,8 +26,8 @@
     "Segoe UI",
     sans-serif;
 
-  --font-xs: .75rem;
-  --font-sm: .875rem;
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
   --font-base: 1rem;
   --font-lg: 1.125rem;
   --font-xl: 1.25rem;
@@ -32,19 +37,23 @@
   --font-5xl: 4rem;
   --font-6xl: 5rem;
 
-  /* ========= Font Weights ========= */
-
   --fw-normal: 400;
   --fw-medium: 500;
   --fw-semibold: 600;
   --fw-bold: 700;
 
-  /* ========= Spacing ========= */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.6;
+  --line-height-loose: 1.8;
 
 
-  --space-1: .25rem;
-  --space-2: .5rem;
-  --space-3: .75rem;
+  /* ==========================================================
+     Spacing
+     ========================================================== */
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
   --space-4: 1rem;
   --space-5: 1.5rem;
   --space-6: 2rem;
@@ -53,18 +62,44 @@
   --space-9: 5rem;
   --space-10: 6rem;
 
-  /* ========= Radius ========= */
 
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 1rem;
+  /* ==========================================================
+     Border Radius
+     ========================================================== */
 
-  /* ========= Shadows ========= */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
 
-  /* ========= Animation ========= */
+  /* ==========================================================
+     Shadows
+     ========================================================== */
 
-  --transition: all 0.2s ease-in-out;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.06);
+
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
+
+
+  /* ==========================================================
+     Layout
+     ========================================================== */
+
+  --navbar-height: 72px;
+
+  --container-width: 1200px;
+
+  --section-padding: 3rem;
+
+
+  /* ==========================================================
+     Buttons
+     ========================================================== */
+
+  --button-padding-y: 0.9rem;
+  --button-padding-x: 1.6rem;
 }
