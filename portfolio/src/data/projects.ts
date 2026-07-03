@@ -1,17 +1,25 @@
+import book from "../assets/projects/bookclub/book.png";
+import searchpage from "../assets/projects/bookclub/searchbar.png";
+
+export interface ProjectImage {
+  src: string;
+  label: string;
+  caption?: string;
+}
+
 export interface Project {
   id: string;
   title: string;
   subtitle: string;
   description: string;
 
-  image?: string;
+  images: ProjectImage[];
 
   technologies: string[];
-  highlights: string[];
+  achievements: string[];
 
   github: string;
   liveDemo?: string;
-  architecture?: string;
 }
 
 export const featuredProject: Project = {
@@ -24,8 +32,6 @@ export const featuredProject: Project = {
   description:
     "A production-ready full-stack web application built with Django REST Framework, React, PostgreSQL, Docker and AWS. Users can discover books, create reading lists, write reviews, and manage their personal library through a responsive web interface.",
 
-  image: "/images/bookclub-home.png",
-
   technologies: [
     "React",
     "TypeScript",
@@ -36,8 +42,18 @@ export const featuredProject: Project = {
     "AWS",
     "Terraform",
   ],
+  images: [
+    {
+      src: book,
+      label: "Book",
+    },
+    {
+      src: searchpage,
+      label: "Search Page",
+    },
+  ],
 
-  highlights: [
+  achievements: [
     "Imported and normalized over 52,000 books from CSV.",
     "Built a RESTful API with Django REST Framework.",
     "Implemented secure session authentication with CSRF protection.",
