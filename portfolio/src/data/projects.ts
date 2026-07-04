@@ -1,9 +1,14 @@
-import book from "../assets/projects/bookclub/book.png";
-import searchpage from "../assets/projects/bookclub/searchbar.png";
+import bookDetails from "../assets/images/book_detail.png";
+import home from "../assets/images/home.png";
+import readingLists from "../assets/images/reading_list.png";
+import searchbar from "../assets/images/searchbar.png";
+import searchpage from "../assets/images/searchpage.png";
+import profile from "../assets/images/profile.png";
+
 
 export interface ProjectImage {
   src: string;
-  label: string;
+  alt: string;
   caption?: string;
 }
 
@@ -42,16 +47,38 @@ export const featuredProject: Project = {
     "AWS",
     "Terraform",
   ],
-  images: [
+images: [
+  {
+    src: home,
+    alt: "BookClub home page showing featured books",
+    caption: "Home",
+  },
+  {
+    src: bookDetails,
+    alt: "Book details page with reviews and ratings",
+    caption: "Book Details",
+  },
+  {
+    src: searchbar,
+    alt: "Autocomplete search suggestions",
+    caption: "Search",
+  },
+  {
+    src: profile,
+    alt: "User profile with reviews and reading lists",
+    caption: "Profile",
+  },
+  {
+    src: readingLists,
+    alt: "Reading list modal displaying books",
+    caption: "Reading Lists",
+  },
     {
-      src: book,
-      label: "Book",
-    },
-    {
-      src: searchpage,
-      label: "Search Page",
-    },
-  ],
+    src: searchpage,
+    alt: "Paginated Search Result Page",
+    caption: "Search Result Page",
+  },
+],
 
   achievements: [
     "Imported and normalized over 52,000 books from CSV.",
