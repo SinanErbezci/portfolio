@@ -295,7 +295,7 @@
 }
 /* ---------------- Responsive ---------------- */
 
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .body {
     grid-template-columns: 1fr;
     gap: var(--space-7);
