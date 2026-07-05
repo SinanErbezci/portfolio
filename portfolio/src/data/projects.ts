@@ -12,8 +12,14 @@ export interface ProjectImage {
   caption?: string;
 }
 
+export interface ProjectHighlight {
+  title: string;
+  description: string;
+}
+
 export interface Project {
   id: string;
+
   title: string;
   subtitle: string;
   description: string;
@@ -21,7 +27,7 @@ export interface Project {
   images: ProjectImage[];
 
   technologies: string[];
-  achievements: string[];
+  highlights: ProjectHighlight[];
 
   github: string;
   liveDemo?: string;
@@ -47,46 +53,65 @@ export const featuredProject: Project = {
     "AWS",
     "Terraform",
   ],
-images: [
-  {
-    src: home,
-    alt: "BookClub home page showing featured books",
-    caption: "Home",
-  },
-  {
-    src: bookDetails,
-    alt: "Book details page with reviews and ratings",
-    caption: "Book Details",
-  },
-  {
-    src: searchbar,
-    alt: "Autocomplete search suggestions",
-    caption: "Search",
-  },
-  {
-    src: profile,
-    alt: "User profile with reviews and reading lists",
-    caption: "Profile",
-  },
-  {
-    src: readingLists,
-    alt: "Reading list modal displaying books",
-    caption: "Reading Lists",
-  },
+  images: [
     {
-    src: searchpage,
-    alt: "Paginated Search Result Page",
-    caption: "Search Result Page",
-  },
-],
+      src: home,
+      alt: "BookClub home page showing featured books",
+      caption: "Home",
+    },
+    {
+      src: bookDetails,
+      alt: "Book details page with reviews and ratings",
+      caption: "Book Details",
+    },
+    {
+      src: searchbar,
+      alt: "Autocomplete search suggestions",
+      caption: "Search",
+    },
+    {
+      src: profile,
+      alt: "User profile with reviews and reading lists",
+      caption: "Profile",
+    },
+    {
+      src: readingLists,
+      alt: "Reading list modal displaying books",
+      caption: "Reading Lists",
+    },
+    {
+      src: searchpage,
+      alt: "Paginated Search Result Page",
+      caption: "Search Result Page",
+    },
+  ],
 
-  achievements: [
-    "Imported and normalized over 52,000 books from CSV.",
-    "Built a RESTful API with Django REST Framework.",
-    "Implemented secure session authentication with CSRF protection.",
-    "Containerized the development environment with Docker.",
-    "Deployed the application to AWS.",
-    "Designed a responsive React frontend.",
+  highlights: [
+    {
+      title: "ETL Pipeline",
+      description:
+        "Built an ETL pipeline to clean, normalize, and import over 52,000 books into a normalized PostgreSQL database.",
+    },
+    {
+      title: "Database Design",
+      description:
+        "Designed a relational schema supporting books, authors, genres, publishers, reviews, and user-created reading lists.",
+    },
+    {
+      title: "Advanced Search",
+      description:
+        "Implemented multi-field search across books, authors, genres, publishers, and series for fast content discovery.",
+    },
+    {
+      title: "CI/CD Pipeline",
+      description:
+        "Built a GitHub Actions CI/CD pipeline to automate application testing, container image builds, and production deployments.",
+    },
+    {
+      title: "Cloud Platform",
+      description:
+        "Designed and deployed production infrastructure on AWS using Docker, EC2, Application Load Balancer, Route 53, Systems Manager Parameter Store, and CloudWatch, with automated deployments and centralized monitoring."
+    },
   ],
 
   github: "https://github.com/SinanErbezci/bookclub",
