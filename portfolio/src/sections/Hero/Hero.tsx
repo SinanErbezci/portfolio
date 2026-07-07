@@ -12,7 +12,7 @@ export default function Hero() {
           <p className={styles.greeting}>Hi, I'm</p>
 
           <h1 className={styles.name}>
-            {profile.name}
+            {profile.name} selam selam
           </h1>
 
           <div className={styles.headline}>
