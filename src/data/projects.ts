@@ -4,6 +4,9 @@ import readingLists from "../assets/images/bookclub-list.webp";
 import searchbar from "../assets/images/bookclub-searchbar.webp";
 import searchpage from "../assets/images/bookclub-searchpage.webp";
 import profile from "../assets/images/bookclub-profile.webp";
+import carlaImage from "../assets/images/carla-screenshot.webp"
+import elkImage from "../assets/images/elk-screenshot.webp"
+import idleImage from "../assets/images/idle-screenshot.webp"
 
 
 export interface ProjectImage {
@@ -30,6 +33,22 @@ export interface Project {
   highlights: ProjectHighlight[];
 
   github: string;
+  liveDemo?: string;
+}
+
+export interface OtherProject {
+  id: string;
+
+  title: string;
+  subtitle: string;
+
+  description: string;
+
+  image: string;
+
+  technologies: string[];
+
+  github?: string;
   liveDemo?: string;
 }
 
@@ -118,3 +137,70 @@ export const featuredProject: Project = {
 
   liveDemo: "https://bookclub.sinanbook.club",
 };
+
+export const otherProjects: OtherProject[] = [
+  {
+      id: "carla",
+
+  title: "Autonomous Driving with CARLA",
+
+  subtitle: "Graduation Project",
+
+  description:
+    "Developed an autonomous driving perception pipeline using the CARLA simulator. Combined YOLO object detection with depth estimation and implemented a finite state machine for real-time vehicle decision making.",
+
+  technologies: [
+    "Python",
+    "PyTorch",
+    "YOLO",
+    "CARLA",
+    "Unreal Engine",
+    "NumPy",
+  ],
+
+  image: carlaImage,
+  },
+  {
+      id: "electricity",
+
+  title: "Electricity Demand Forecasting",
+
+  subtitle: "Graduation Project",
+
+  description:
+    "Developed and evaluated recurrent neural network models to forecast Turkey's electricity demand using historical time-series data, comparing RNN, LSTM, and GRU architectures.",
+
+  technologies: [
+    "Python",
+    "PyTorch",
+    "LSTM",
+    "GRU",
+    "RNN",
+    "scikit-learn",
+  ],
+
+  image: elkImage,
+  },
+  {
+      id: "code-idle",
+
+  title: "CS50X Idle Game",
+
+  subtitle: "Harvard CS50x Final Project",
+
+  description:
+    "Educational browser game combining idle progression with a typing challenge where players complete code snippets to gain experience and progress through all eleven weeks of the CS50x course.",
+
+  technologies: [
+    "HTML",
+    "CSS",
+    "JavaScript",
+  ],
+
+  image: idleImage,
+
+  github: "...",
+
+  liveDemo: "...",
+  }
+];
