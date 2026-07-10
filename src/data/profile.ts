@@ -11,5 +11,5 @@ export const profile: Profile = {
     degrees: [
         "Electronics and Communication Engineer",
         "Electrical Engineer (Double Degree)"],
-    summary: "I build production-ready web applications and cloud infrastructure with AWS, Django, React, Docker, PostgreSQL, and Terraform."
+    summary: "Building scalable cloud infrastructure, backend systems, and production-ready web applications with AWS, Terraform, Docker, Django, and React."
 }
