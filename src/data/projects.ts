@@ -1,9 +1,9 @@
-import bookDetails from "../assets/images/book_detail.png";
-import home from "../assets/images/home.png";
-import readingLists from "../assets/images/reading_list.png";
-import searchbar from "../assets/images/searchbar.png";
-import searchpage from "../assets/images/searchpage.png";
-import profile from "../assets/images/profile.png";
+import bookDetails from "../assets/images/bookclub-book.webp";
+import home from "../assets/images/bookclub-home.webp";
+import readingLists from "../assets/images/bookclub-list.webp";
+import searchbar from "../assets/images/bookclub-searchbar.webp";
+import searchpage from "../assets/images/bookclub-searchpage.webp";
+import profile from "../assets/images/bookclub-profile.webp";
 
 
 export interface ProjectImage {

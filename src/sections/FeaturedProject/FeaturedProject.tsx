@@ -91,6 +91,7 @@ export default function FeaturedProject() {
                     src={image.src}
                     alt=""
                     className={styles.thumbnailImage}
+                    loading="lazy"
                   />
 
                   <span className={styles.thumbnailCaption}>

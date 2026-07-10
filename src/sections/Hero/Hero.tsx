@@ -1,4 +1,4 @@
-import profileImage from "../../assets/images/profile.jpg";
+import profileImage from "../../assets/images/profile.webp";
 import Section from "../../components/common/Section/Section";
 import { profile } from "../../data/profile";
 
@@ -12,7 +12,7 @@ export default function Hero() {
           <p className={styles.greeting}>Hi, I'm</p>
 
           <h1 className={styles.name}>
-            {profile.name} selam selam
+            {profile.name}
           </h1>
 
           <div className={styles.headline}>
