@@ -137,7 +137,7 @@ export default function FeaturedProject() {
             </section>
             <div className={styles.actions}>
               {featuredProject.liveDemo && (
-                <div className={styles.demoAction}>
+                <div className={styles.liveDemo}>
                   <a
                     href={featuredProject.liveDemo}
                     target="_blank"

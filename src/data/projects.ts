@@ -62,12 +62,12 @@ export const featuredProject: Project = {
     {
       src: bookDetails,
       alt: "Book details page with reviews and ratings",
-      caption: "Book Details",
+      caption: "Book",
     },
     {
       src: searchbar,
       alt: "Autocomplete search suggestions",
-      caption: "Search",
+      caption: "Searchbar",
     },
     {
       src: profile,
@@ -77,12 +77,12 @@ export const featuredProject: Project = {
     {
       src: readingLists,
       alt: "Reading list modal displaying books",
-      caption: "Reading Lists",
+      caption: "Lists",
     },
     {
       src: searchpage,
       alt: "Paginated Search Result Page",
-      caption: "Search Result Page",
+      caption: "Search",
     },
   ],
 
