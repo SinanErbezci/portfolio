@@ -1,0 +1,174 @@
+.skills {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  max-width: 720px;
+
+  margin: 0 auto var(--space-8);
+
+  text-align: center;
+}
+
+.eyebrow {
+  margin-bottom: var(--space-2);
+
+  color: var(--color-text-muted);
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin-bottom: var(--space-4);
+
+  font-size: clamp(2.25rem, 5vw, 3rem);
+
+  line-height: 1.1;
+}
+
+.subtitle {
+  margin: 0;
+
+  color: var(--color-text-muted);
+
+  font-size: 1.1rem;
+
+  line-height: 1.8;
+}
+
+/* ---------- Grid ---------- */
+
+.grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: var(--space-6);
+}
+
+/* ---------- Card ---------- */
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--space-5);
+
+  padding: var(--space-6);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  background: var(--color-surface);
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--color-text);
+
+  box-shadow: var(--shadow-lg);
+}
+
+.cardTitle {
+  margin: 0;
+
+  font-size: 1.2rem;
+}
+
+/* ---------- Technology Badges ---------- */
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: var(--space-2);
+}
+
+.badge {
+  padding: 0.45rem 0.9rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+
+  background: var(--color-background);
+
+  font-size: 0.9rem;
+}
+
+/* ---------- Education ---------- */
+
+.listSection {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--space-3);
+}
+
+.listTitle {
+  margin: 0;
+
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.list {
+  margin: 0;
+
+  padding-left: 1.25rem;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--space-2);
+
+  color: var(--color-text-muted);
+
+  line-height: 1.7;
+}
+
+.list li::marker {
+  color: var(--color-text);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    margin-bottom: var(--space-7);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: var(--space-5);
+  }
+
+  .title {
+    font-size: 2.25rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}

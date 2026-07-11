@@ -52,6 +52,16 @@ export interface OtherProject {
   liveDemo?: string;
 }
 
+export interface SkillGroup {
+  title: string;
+
+  items?: string[];
+
+  education?: string[];
+
+  certifications?: string[];
+}
+
 export const featuredProject: Project = {
   id: "bookclub",
 
@@ -199,8 +209,77 @@ export const otherProjects: OtherProject[] = [
 
   image: idleImage,
 
-  github: "...",
+  github: "https://github.com/SinanErbezci/cs50x_final",
 
   liveDemo: "...",
-  }
+  } 
+];
+
+export const skillGroups: SkillGroup[] = [
+  {
+    title: "Cloud & Infrastructure",
+
+    items: [
+      "AWS",
+      "Terraform",
+      "Docker",
+      "Linux",
+      "Amazon EC2",
+      "Amazon S3",
+      "CloudFront",
+    ],
+  },
+
+  {
+    title: "Backend",
+
+    items: [
+      "Python",
+      "Django",
+      "Django REST Framework",
+      "PostgreSQL",
+      "REST APIs",
+    ],
+  },
+
+  {
+    title: "Frontend",
+
+    items: [
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Bootstrap",
+    ],
+  },
+
+  {
+    title: "DevOps & Tools",
+
+    items: [
+      "Git",
+      "GitHub Actions",
+      "Docker Compose",
+      "Nginx",
+      "CloudWatch",
+      "Postman",
+    ],
+  },
+
+  {
+    title: "Education & Certifications",
+
+    education: [
+      "B.Sc. Electronics & Communication Engineering",
+      "Double Degree in Electrical Engineering",
+    ],
+
+    certifications: [
+      "AWS Certified Solutions Architect – Associate",
+      "CS50x: Introduction to Computer Science",
+      "DevOps with Docker (University of Helsinki)",
+    ],
+  },
 ];

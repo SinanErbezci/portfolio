@@ -1,3 +1,4 @@
 .section {
   padding: var(--section-padding) 0;
+  scroll-margin-top: calc(var(--navbar-height) + var(--space-4));
 }
