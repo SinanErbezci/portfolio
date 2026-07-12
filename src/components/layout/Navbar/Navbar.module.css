@@ -58,17 +58,18 @@
 
 @media (max-width: 768px) {
   .content {
-    flex-direction: column;
+    min-height: var(--navbar-height);
+  }
 
-    gap: var(--space-4);
-
-    padding: var(--space-4) 0;
+  .logo {
+    font-size: 1rem;
   }
 
   .links {
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: var(--space-4);
+  }
 
-    gap: var(--space-5);
+  .navLink {
+    font-size: 0.85rem;
   }
 }

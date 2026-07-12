@@ -3,40 +3,6 @@
   flex-direction: column;
 }
 
-.header {
-  max-width: 720px;
-  margin: 0 auto var(--space-8);
-
-  text-align: center;
-}
-
-.eyebrow {
-  margin-bottom: var(--space-2);
-
-  color: var(--color-text-muted);
-
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.title {
-  margin-bottom: var(--space-4);
-
-  font-size: clamp(2.25rem, 5vw, 3rem);
-  line-height: 1.1;
-}
-
-.subtitle {
-  margin: 0;
-
-  color: var(--color-text-muted);
-
-  font-size: 1.1rem;
-  line-height: 1.8;
-}
-
 /* ---------- Grid ---------- */
 
 .grid {

@@ -59,12 +59,12 @@ export default function FeaturedProject() {
   return (
     <Section id="projects">
       <div className={styles.project}>
-        <header className={styles.header}>
-          <p className={styles.eyebrow}>Featured Project</p>
+        <header className="sectionHeader">
+          <p className="sectionEyebrow">Featured Project</p>
 
-          <h2 className={styles.title}>{featuredProject.title}</h2>
+          <h2 className="sectionTitle">{featuredProject.title}</h2>
 
-          <p className={styles.subtitle}>{featuredProject.subtitle}</p>
+          <p className="sectionSubtitle">{featuredProject.subtitle}</p>
         </header>
 
         <div className={styles.body}>

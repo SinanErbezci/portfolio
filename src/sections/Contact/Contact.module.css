@@ -1,0 +1,61 @@
+.contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+}
+
+.contactLink {
+    display: inline-flex;
+    align-items: center;
+
+    gap: var(--space-3);
+
+    color: var(--color-text);
+
+    text-decoration: none;
+
+    font-size: 1rem;
+    font-weight: 500;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.contactLink:hover {
+    color: var(--color-text-muted);
+
+    transform: translateY(-2px);
+}
+
+.icon {
+    width: 20px;
+
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .header {
+        margin-bottom: var(--space-7);
+    }
+
+    .title {
+        font-size: 2.25rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .links {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-4);
+    }
+}

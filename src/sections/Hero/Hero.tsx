@@ -39,9 +39,13 @@ export default function Hero() {
             {profile.summary}
           </p>
 
+          <p className={styles.location}>
+            Based in Istanbul, Türkiye · Open to remote and relocation opportunities
+          </p>
+
 <div className={styles.actions}>
   <a
-    href="/Sinan-Erbezci-Resume.pdf"
+    href="/sinan-erbezci-cv.pdf"
     target="_blank"
     rel="noreferrer"
     className={styles.primaryButton}

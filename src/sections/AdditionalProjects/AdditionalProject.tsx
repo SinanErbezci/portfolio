@@ -12,12 +12,12 @@ export default function AdditonalProjects() {
   return (
     <Section id="other-projects">
       <div className={styles.projects}>
-        <header className={styles.header}>
-          <p className={styles.eyebrow}>Additional Projects</p>
+        <header className="sectionHeader">
+          <p className="sectionEyebrow">Additional Projects</p>
 
-          <h2 className={styles.title}>Other Engineering Projects</h2>
+          <h2 className="sectionTitle">Other Engineering Projects</h2>
 
-          <p className={styles.subtitle}>
+          <p className="sectionSubtitle">
             Additional projects spanning computer vision, machine learning, and
             interactive web development.
           </p>

@@ -125,6 +125,16 @@
   box-shadow: var(--shadow-lg);
 }
 
+.location {
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-6);
+
+  color: var(--color-text-muted);
+
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
 @media (max-width: 992px) {
   .hero {
     grid-template-columns: 1fr;
