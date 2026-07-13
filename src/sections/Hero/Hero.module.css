@@ -114,14 +114,11 @@
 }
 
 .image {
-  width: 360px;
-
+  width:clamp(200px, 30vw, 320px);
   aspect-ratio: 4 / 5;
-
   object-fit: cover;
 
   border-radius: var(--radius-xl);
-
   box-shadow: var(--shadow-lg);
 }
 
@@ -163,8 +160,8 @@
   .summary {
     max-width: 100%;
   }
+}
 
-  .image {
-    width: min(320px, 80vw);
-  }
+@media (max-width: 768px) {
+
 }
