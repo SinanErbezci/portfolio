@@ -145,7 +145,7 @@ export const featuredProject: Project = {
 
   github: "https://github.com/SinanErbezci/bookclub",
 
-  liveDemo: "https://bookclub.sinanbook.club",
+  liveDemo: "https://bookclub.sinanerbezci.com",
 };
 
 export const otherProjects: OtherProject[] = [

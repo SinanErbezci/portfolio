@@ -18,7 +18,7 @@ export default function FeaturedProject() {
   useEffect(() => {
     async function checkHealth() {
       try {
-        const response = await fetch("https://api.sinanbook.club/health/");
+        const response = await fetch("https://api.sinanerbezci.com/health/");
 
         if (!response.ok) {
           setDemoStatus("offline");
