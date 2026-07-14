@@ -49,6 +49,11 @@ resource "aws_cloudfront_distribution" "portfolio" {
     compress = true
 
     cache_policy_id = "658327ea-f89d-4fab-a63d-7e88639e58f6"
+
+    function_association {
+      event_type = "viewer-request"
+      function_arn = aws_cloudfront_function.url_rewrite.arn
+    }
   }
   restrictions {
     geo_restriction {
@@ -67,4 +72,12 @@ resource "aws_cloudfront_distribution" "portfolio" {
   tags = merge(local.common_tags, {
     Name = "portfolio-cloudfront"
   })
+}
+
+resource "aws_cloudfront_function" "url_rewrite" {
+  name    = "portfolio-url-rewrite"
+  runtime = "cloudfront-js-2.0"
+  publish = true
+
+  code = file("${path.module}/cloudfront-function.js")
 }

@@ -1,0 +1,151 @@
+data.aws_iam_policy_document.github_assume_role: Reading...
+aws_cloudfront_origin_access_control.portfolio: Refreshing state... [id=EU9RDPHFBFKWM]
+aws_s3_bucket.portfolio: Refreshing state... [id=sinanerbezci-portfolio]
+data.aws_iam_policy_document.github_assume_role: Read complete after 0s [id=2987654645]
+aws_iam_role.github_actions: Refreshing state... [id=portfolio-github-actions]
+aws_acm_certificate.cloudfront: Refreshing state... [id=arn:aws:acm:us-east-1:796973519136:certificate/876a0442-9c7e-44b2-a492-c985f961a1ba]
+aws_acm_certificate_validation.cloudfront: Refreshing state... [id=2026-07-07 10:28:34.429 +0000 UTC]
+aws_s3_bucket_ownership_controls.portfolio: Refreshing state... [id=sinanerbezci-portfolio]
+aws_s3_bucket_versioning.portfolio: Refreshing state... [id=sinanerbezci-portfolio]
+aws_s3_bucket_public_access_block.portfolio: Refreshing state... [id=sinanerbezci-portfolio]
+aws_s3_bucket_server_side_encryption_configuration.portfolio: Refreshing state... [id=sinanerbezci-portfolio]
+aws_cloudfront_distribution.portfolio: Refreshing state... [id=ECL2NX6B0V11L]
+aws_s3_bucket_policy.portfolio: Refreshing state... [id=sinanerbezci-portfolio]
+aws_iam_policy.deploy: Refreshing state... [id=arn:aws:iam::796973519136:policy/portfolio-deploy]
+aws_iam_role_policy_attachment.deploy: Refreshing state... [id=portfolio-github-actions/arn:aws:iam::796973519136:policy/portfolio-deploy]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+  ~ update in-place
+ <= read (data resources)
+
+Terraform will perform the following actions:
+
+  # data.aws_iam_policy_document.deploy will be read during apply
+  # (depends on a resource or a module with changes pending)
+ <= data "aws_iam_policy_document" "deploy" {
+      + id            = (known after apply)
+      + json          = (known after apply)
+      + minified_json = (known after apply)
+
+      + statement {
+          + actions   = [
+              + "s3:ListBucket",
+            ]
+          + resources = [
+              + "arn:aws:s3:::sinanerbezci-portfolio",
+            ]
+        }
+      + statement {
+          + actions   = [
+              + "s3:DeleteObject",
+              + "s3:GetObject",
+              + "s3:PutObject",
+            ]
+          + resources = [
+              + "arn:aws:s3:::sinanerbezci-portfolio/*",
+            ]
+        }
+      + statement {
+          + actions   = [
+              + "cloudfront:CreateInvalidation",
+            ]
+          + resources = [
+              + "arn:aws:cloudfront::796973519136:distribution/ECL2NX6B0V11L",
+            ]
+        }
+    }
+
+  # aws_cloudfront_distribution.portfolio will be updated in-place
+  ~ resource "aws_cloudfront_distribution" "portfolio" {
+        id                              = "ECL2NX6B0V11L"
+        tags                            = {
+            "Environment" = "production"
+            "ManagedBy"   = "Terraform"
+            "Name"        = "portfolio-cloudfront"
+            "Project"     = "portfolio"
+        }
+        # (24 unchanged attributes hidden)
+
+      ~ default_cache_behavior {
+            # (16 unchanged attributes hidden)
+
+          + function_association {
+              + event_type   = "viewer-request"
+              + function_arn = (known after apply)
+            }
+
+            # (1 unchanged block hidden)
+        }
+
+        # (3 unchanged blocks hidden)
+    }
+
+  # aws_cloudfront_function.url_rewrite will be created
+  + resource "aws_cloudfront_function" "url_rewrite" {
+      + arn             = (known after apply)
+      + code            = <<-EOT
+            function handler(event) {
+                var request = event.request;
+                var uri = request.uri;
+            
+                if (uri.endsWith("/")) {
+                    request.uri += "index.html";
+                } else if (!uri.split("/").pop().includes(".")) {
+                    request.uri += "/index.html";
+                }
+            
+                return request;
+            }
+        EOT
+      + etag            = (known after apply)
+      + id              = (known after apply)
+      + live_stage_etag = (known after apply)
+      + name            = "portfolio-url-rewrite"
+      + publish         = true
+      + runtime         = "cloudfront-js-2.0"
+      + status          = (known after apply)
+      + tags_all        = (known after apply)
+    }
+
+  # aws_iam_policy.deploy will be updated in-place
+  ~ resource "aws_iam_policy" "deploy" {
+        id               = "arn:aws:iam::796973519136:policy/portfolio-deploy"
+        name             = "portfolio-deploy"
+      ~ policy           = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action   = "s3:ListBucket"
+                      - Effect   = "Allow"
+                      - Resource = "arn:aws:s3:::sinanerbezci-portfolio"
+                    },
+                  - {
+                      - Action   = [
+                          - "s3:PutObject",
+                          - "s3:GetObject",
+                          - "s3:DeleteObject",
+                        ]
+                      - Effect   = "Allow"
+                      - Resource = "arn:aws:s3:::sinanerbezci-portfolio/*"
+                    },
+                  - {
+                      - Action   = "cloudfront:CreateInvalidation"
+                      - Effect   = "Allow"
+                      - Resource = "arn:aws:cloudfront::796973519136:distribution/ECL2NX6B0V11L"
+                    },
+                ]
+              - Version   = "2012-10-17"
+            }
+        ) -> (known after apply)
+        tags             = {}
+        # (7 unchanged attributes hidden)
+    }
+
+Plan: 1 to add, 2 to change, 0 to destroy.
+
+─────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.
