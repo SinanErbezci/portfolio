@@ -211,7 +211,7 @@ export const otherProjects: OtherProject[] = [
 
   github: "https://github.com/SinanErbezci/cs50x_final",
 
-  liveDemo: "...",
+  liveDemo: "https://sinanerbezci.com/projects/idle-game/",
   } 
 ];
 
