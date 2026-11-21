@@ -259,15 +259,7 @@
   border-radius: 50%;
 }
 
-.live::before {
-  background: var(--color-success);
-}
-
-.offline::before {
-  background: var(--color-danger);
-}
-
-.checking::before {
+.onDemand::before {
   background: var(--color-warning);
 }
 /* ---------------- Responsive ---------------- */

@@ -72,27 +72,31 @@ export const featuredProject: Project = {
 
   title: "BookClub",
 
-  subtitle: "A Goodreads-inspired book discovery and review platform.",
+  subtitle: "Cloud-native book discovery platform with AI-powered search and recommendations.",
 
   description:
-    "A production-ready full-stack web application built with Django REST Framework, React, TypeScript, PostgreSQL, Docker, and AWS. Users can discover books, search using natural language, create reading lists, write reviews, and receive AI-powered recommendations with LLM-generated explanations.",
+    "A full-stack platform built with Django REST Framework, React, TypeScript, and PostgreSQL. BookClub supports book discovery, reviews, reading lists, and semantic search, with containerized backend services deployed on demand to Amazon EKS through Terraform and GitOps.",
 
   technologies: [
+    "Python",
+    "Django REST Framework",
     "React",
     "TypeScript",
-    "Django",
-    "Django REST Framework",
     "PostgreSQL",
     "pgvector",
+    "Amazon EKS",
     "Docker",
-    "AWS",
     "Terraform",
+    "Argo CD",
+    "GitHub Actions",
+    "Prometheus",
+    "Grafana",
   ],
 
   images: [
     {
       src: home,
-      alt: "BookClub home page showing featured books",
+      alt: "BookClub homepage showing featured books",
       caption: "Home",
     },
     {
@@ -107,46 +111,51 @@ export const featuredProject: Project = {
     },
     {
       src: explanation,
-      alt: "BookClub recommendation explanation",
+      alt: "BookClub AI recommendation explanation",
       caption: "Explanation",
     },
     {
       src: profile,
-      alt: "User profile with reviews and reading lists",
+      alt: "User profile showing reviews and reading lists",
       caption: "Profile",
     },
     {
       src: readingLists,
-      alt: "Reading list modal displaying books",
+      alt: "Reading list dialog displaying books",
       caption: "Lists",
     },
   ],
 
   highlights: [
     {
-      title: "AI & Semantic Search",
+      title: "Kubernetes & AWS Infrastructure",
       description:
-        "Built semantic search and book recommendations using 384-dimensional embeddings from BAAI/bge-small-en-v1.5 with PostgreSQL and pgvector, allowing users to discover books by concepts and themes rather than exact keywords.",
+        "Deployed Django, FastAPI, and Celery workloads to Amazon EKS. Managed VPC networking, load balancing, and related AWS resources with Terraform, including on-demand provisioning and teardown to control costs.",
     },
     {
-      title: "AI Recommendation Pipeline",
+      title: "CI/CD, GitOps & Automated Tests",
       description:
-        "Developed an AI pipeline using generated book summaries, embeddings, vector similarity search, and LLM-generated recommendation explanations. Large-scale summaries were generated asynchronously using the OpenAI Batch API.",
+        "Built GitHub Actions pipelines with Docker image builds, Trivy scans, and 34 Django API tests. Managed Kubernetes releases through deployment pull requests, Kustomize, and Argo CD.",
     },
     {
-      title: "ETL Pipeline",
+      title: "Monitoring & Observability",
       description:
-        "Built an ETL pipeline to clean, normalize, and import more than 52,000 books into a relational PostgreSQL database.",
+        "Instrumented services and Kubernetes workloads with Prometheus, built Grafana dashboards for health and performance metrics, and configured Alertmanager notifications through Slack.",
     },
     {
-      title: "Production AWS Infrastructure",
+      title: "AI Search & Recommendations",
       description:
-        "Designed and deployed the application on AWS using ECS with Fargate, ECR, an Application Load Balancer, CloudFront, S3, CloudWatch, IAM, and Systems Manager Parameter Store, with infrastructure managed through Terraform.",
+        "Implemented semantic search and recommendations using a FastAPI embedding service, 384-dimensional vectors, and PostgreSQL pgvector. Used the OpenAI Batch API to generate book summaries and an LLM to explain recommendations.",
     },
     {
-      title: "CI/CD Pipeline",
+      title: "Backend APIs & Data Engineering",
       description:
-        "Built a GitHub Actions deployment pipeline that runs validation, builds and publishes Docker images, runs migrations, deploys ECS tasks, uploads frontend assets to S3, and invalidates the CloudFront cache.",
+        "Developed the Django REST API for reviews, ratings, and personal lists, and an ETL pipeline that cleaned and imported more than 52,000 book records into PostgreSQL.",
+    },
+    {
+      title: "Async Processing & Caching",
+      description:
+        "Used Celery with Amazon SQS for background tasks and Amazon ElastiCache Redis for application caching, including scheduled homepage refreshes and transactional email workflows.",
     },
   ],
 
@@ -223,10 +232,8 @@ export const otherProjects: OtherProject[] = [
 ];
 
 export const skillGroups: SkillGroup[] = [
-
   {
     title: "Education & Certifications",
-
     education: {
       degrees: [
         "B.Sc. Electronics & Communication Engineering",
@@ -234,7 +241,6 @@ export const skillGroups: SkillGroup[] = [
       ],
       university: "Istanbul Technical University",
     },
-
     certifications: [
       "AWS Certified Solutions Architect – Associate",
       "CS50x: Introduction to Computer Science",
@@ -243,33 +249,35 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: "Cloud & Infrastructure",
-
     items: [
       "AWS",
-      "ECS / Fargate",
+      "Amazon EKS",
+      "Kubernetes",
+      "Terraform",
+      "VPC",
+      "IAM",
+      "Application Load Balancer",
       "S3",
       "CloudFront",
-      "Cloudflare",
-      "Terraform",
-      "IAM",
-      "CloudWatch",
+      "ElastiCache",
     ],
   },
   {
     title: "Backend & Data",
-
     items: [
       "Python",
       "Django",
       "Django REST Framework",
       "PostgreSQL",
       "pgvector",
+      "Redis",
+      "Celery",
+      "Amazon SQS",
       "REST APIs",
     ],
   },
   {
     title: "AI & Machine Learning",
-
     items: [
       "OpenAI API",
       "OpenAI Batch API",
@@ -281,10 +289,8 @@ export const skillGroups: SkillGroup[] = [
       "Ollama",
     ],
   },
-
   {
     title: "Frontend",
-
     items: [
       "React",
       "TypeScript",
@@ -294,16 +300,19 @@ export const skillGroups: SkillGroup[] = [
       "Bootstrap",
     ],
   },
-
   {
-    title: "DevOps & Tools",
-
+    title: "DevOps & Observability",
     items: [
+      "Docker",
       "Git",
       "GitHub Actions",
-      "Docker Compose",
-      "Nginx",
+      "Argo CD",
+      "Helm",
+      "Kustomize",
+      "Trivy",
+      "Prometheus",
+      "Grafana",
+      "Alertmanager",
     ],
   },
-
 ];

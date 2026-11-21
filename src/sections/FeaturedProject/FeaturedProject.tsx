@@ -1,6 +1,6 @@
 import Section from "../../components/common/Section/Section";
 import { featuredProject } from "../../data/projects";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "./FeaturedProject.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,51 +10,6 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 export default function FeaturedProject() {
   const [selectedImage, setSelectedImage] = useState(0);
   const currentImage = featuredProject.images[selectedImage];
-
-  type DemoStatus = "checking" | "live" | "offline";
-
-  const [demoStatus, setDemoStatus] = useState<DemoStatus>("checking");
-
-  useEffect(() => {
-    async function checkHealth() {
-      try {
-        const response = await fetch("https://api.sinanerbezci.com/health/");
-
-        if (!response.ok) {
-          setDemoStatus("offline");
-          return;
-        }
-
-        const data = await response.json();
-        console.log(data.status)
-        setDemoStatus(data.status === "healthy" ? "live" : "offline");
-      } catch {
-        setDemoStatus("offline");
-      }
-    }
-
-    checkHealth();
-  }, []);
-
-  const statusConfig = {
-    checking: {
-      label: "Checking...",
-      className: styles.checking,
-      title: "",
-    },
-    live: {
-      label: "Live",
-      className: styles.live,
-      title: "",
-    },
-    offline: {
-      label: "Offline",
-      className: styles.offline,
-      title: "Demo is currently offline to minimize AWS infrastructure costs.",
-    },
-  };
-
-  const currentStatus = statusConfig[demoStatus];
 
   return (
     <Section id="projects">
@@ -82,6 +37,8 @@ export default function FeaturedProject() {
                 <button
                   key={image.caption}
                   type="button"
+                  aria-pressed={selectedImage === index}
+                  aria-label={`Show ${image.caption} screenshot`}
                   onClick={() => setSelectedImage(index)}
                   className={`${styles.thumbnailButton} ${
                     selectedImage === index ? styles.active : ""
@@ -152,13 +109,26 @@ export default function FeaturedProject() {
                   </a>
 
                   <span
-                    className={`${styles.status} ${currentStatus.className}`}
-                    title={currentStatus.title}
+                    className={`${styles.status} ${styles.onDemand}`}
+                    title="The frontend remains available; AWS backend services are started on demand to manage costs."
                   >
-                    {currentStatus.label}
+                    On demand
                   </span>
                 </div>
               )}
+
+              <a
+                href="https://github.com/SinanErbezci/bookclub/releases/tag/v1.6.0"
+                target="_blank"
+                rel="noreferrer"
+                className={styles.actionLink}
+              >
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  className={styles.actionIcon}
+                />
+                <span>v1.6.0 Release</span>
+              </a>
 
               <a
                 href={featuredProject.github}

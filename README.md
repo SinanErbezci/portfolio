@@ -1,75 +1,52 @@
-# React + TypeScript + Vite
+# Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website showcasing cloud infrastructure, DevOps, backend development, and engineering projects.
 
-Currently, two official plugins are available:
+**Live website:** https://sinanerbezci.com
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Featured project
 
-## React Compiler
+[BookClub](https://github.com/SinanErbezci/bookclub) is a cloud-native book discovery application built with Django REST Framework, React, PostgreSQL, and AI-powered semantic search. The [v1.6.0 release](https://github.com/SinanErbezci/bookclub/releases/tag/v1.6.0) includes Amazon EKS, Terraform infrastructure, Argo CD GitOps deployments, CI/CD testing, Prometheus, and Grafana.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The BookClub frontend remains online, but its AWS backend runs on demand to limit infrastructure costs.
 
-## Expanding the ESLint configuration
+## Tech stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19, TypeScript, Vite, CSS Modules, and Bootstrap
+- Static frontend hosting with Amazon S3 and CloudFront
+- Terraform-managed hosting infrastructure and ACM TLS certificates
+- GitHub Actions CI/CD with AWS OIDC authentication
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Local development
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Requires Node.js 22 and npm.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm ci
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+To validate a change:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm run lint
+npm run build
 ```
+
+## Deployment
+
+Merging to `main` triggers [Deploy Portfolio](.github/workflows/deploy.yml), which builds the Vite site, includes the [CS50x idle game](https://github.com/SinanErbezci/cs50x_final), synchronizes the build to S3, and invalidates CloudFront.
+
+Pull requests are validated by [Portfolio CI](.github/workflows/ci.yml).
+
+### Updating the resume PDF
+
+The Resume link in the hero section serves `public/sinan-erbezci-cv.pdf`. Replace that file with the latest version before deployment. The workflow uploads the resume with `Cache-Control: no-cache` so visitors receive the current document.
+
+## Project structure
+
+- `src/data/profile.ts`: hero introduction
+- `src/data/projects.ts`: project descriptions and skills
+- `src/sections/`: page sections and associated CSS Modules
+- `public/`: resume, favicon, and social preview image
+- `terraform/`: S3, CloudFront, ACM, and IAM resources

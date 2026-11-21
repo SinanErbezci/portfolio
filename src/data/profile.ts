@@ -7,9 +7,9 @@ export interface Profile {
 
 export const profile: Profile = {
     name: "Sinan Erbezci",
-    headline: "AWS Certified Solutions Architect",
+    headline: "Cloud & DevOps Engineer | AWS Certified Solutions Architect – Associate",
     degrees: [
         "Electronics and Communication Engineer",
         "Electrical Engineer (Double Degree)"],
-    summary: "Building scalable cloud infrastructure, backend systems, and production-ready web applications with AWS, Terraform, Docker, Django, and React."
+    summary: "I build cloud infrastructure and backend applications with AWS, Kubernetes, Terraform, Python, and Django, with a focus on CI/CD, GitOps, and observability."
 }
