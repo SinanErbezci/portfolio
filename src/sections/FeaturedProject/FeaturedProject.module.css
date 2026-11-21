@@ -286,3 +286,117 @@
     position: static;
   }
 }
+
+/* ========================================
+   Architecture & Observability
+======================================== */
+
+.infrastructure {
+  margin-top: var(--space-9);
+}
+
+.infrastructureHeader {
+  text-align: center;
+  margin-bottom: var(--space-7);
+}
+
+.infrastructureTitle {
+  font-size: var(--font-3xl);
+  font-weight: var(--fw-bold);
+  margin-bottom: var(--space-3);
+}
+
+.infrastructureDescription {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--color-text-muted);
+  line-height: var(--line-height-normal);
+}
+
+/* Architecture Diagrams */
+
+.diagramGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.visualCard {
+  min-width: 0;
+  margin: 0;
+  padding: var(--space-4);
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.visualLink {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  cursor: zoom-in;
+}
+
+.diagramImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.visualCaption {
+  margin-top: var(--space-4);
+  text-align: center;
+  font-size: var(--font-sm);
+  font-weight: var(--fw-semibold);
+}
+
+/* Grafana Dashboards */
+
+.monitoring {
+  margin-top: var(--space-8);
+}
+
+.monitoringTitle {
+  font-size: var(--font-xl);
+  font-weight: var(--fw-semibold);
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6);
+}
+
+.dashboardImage {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .infrastructure {
+    margin-top: var(--space-8);
+  }
+
+  .infrastructureTitle {
+    font-size: var(--font-2xl);
+  }
+
+  .dashboardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .visualCard {
+    padding: var(--space-3);
+  }
+}
