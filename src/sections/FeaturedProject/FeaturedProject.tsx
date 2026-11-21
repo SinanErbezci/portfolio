@@ -1,60 +1,20 @@
 import Section from "../../components/common/Section/Section";
 import { featuredProject } from "../../data/projects";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "./FeaturedProject.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
+import architecture from "../../assets/images/bookclub-architecture.svg";
+import cicd from "../../assets/images/bookclub-cicd.svg";
+import applicationDashboard from "../../assets/images/application_dashboard.webp";
+import kubernetesDashboard from "../../assets/images/k8s_database_dashboard.webp";
+
 export default function FeaturedProject() {
   const [selectedImage, setSelectedImage] = useState(0);
   const currentImage = featuredProject.images[selectedImage];
-
-  type DemoStatus = "checking" | "live" | "offline";
-
-  const [demoStatus, setDemoStatus] = useState<DemoStatus>("checking");
-
-  useEffect(() => {
-    async function checkHealth() {
-      try {
-        const response = await fetch("https://api.sinanerbezci.com/health/");
-
-        if (!response.ok) {
-          setDemoStatus("offline");
-          return;
-        }
-
-        const data = await response.json();
-        console.log(data.status)
-        setDemoStatus(data.status === "healthy" ? "live" : "offline");
-      } catch {
-        setDemoStatus("offline");
-      }
-    }
-
-    checkHealth();
-  }, []);
-
-  const statusConfig = {
-    checking: {
-      label: "Checking...",
-      className: styles.checking,
-      title: "",
-    },
-    live: {
-      label: "Live",
-      className: styles.live,
-      title: "",
-    },
-    offline: {
-      label: "Offline",
-      className: styles.offline,
-      title: "Demo is currently offline to minimize AWS infrastructure costs.",
-    },
-  };
-
-  const currentStatus = statusConfig[demoStatus];
 
   return (
     <Section id="projects">
@@ -82,6 +42,8 @@ export default function FeaturedProject() {
                 <button
                   key={image.caption}
                   type="button"
+                  aria-pressed={selectedImage === index}
+                  aria-label={`Show ${image.caption} screenshot`}
                   onClick={() => setSelectedImage(index)}
                   className={`${styles.thumbnailButton} ${
                     selectedImage === index ? styles.active : ""
@@ -152,13 +114,26 @@ export default function FeaturedProject() {
                   </a>
 
                   <span
-                    className={`${styles.status} ${currentStatus.className}`}
-                    title={currentStatus.title}
+                    className={`${styles.status} ${styles.onDemand}`}
+                    title="The frontend remains available; AWS backend services are started on demand to manage costs."
                   >
-                    {currentStatus.label}
+                    On demand
                   </span>
                 </div>
               )}
+
+              <a
+                href="https://github.com/SinanErbezci/bookclub/releases/tag/v1.6.0"
+                target="_blank"
+                rel="noreferrer"
+                className={styles.actionLink}
+              >
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  className={styles.actionIcon}
+                />
+                <span>v1.6.0 Release</span>
+              </a>
 
               <a
                 href={featuredProject.github}
@@ -175,6 +150,114 @@ export default function FeaturedProject() {
             </div>
           </div>
         </div>
+
+        {/* Architecture & Observability */}
+        <section className={styles.infrastructure}>
+          <header className={styles.infrastructureHeader}>
+            <p className="sectionEyebrow">Infrastructure</p>
+            <h3 className={styles.infrastructureTitle}>
+              Architecture & Observability
+            </h3>
+            <p className={styles.infrastructureDescription}>
+              An overview of BookClub's cloud architecture, GitOps deployment
+              workflow, and monitoring infrastructure.
+            </p>
+          </header>
+
+          {/* Architecture Diagrams */}
+          <div className={styles.diagramGrid}>
+            <figure className={styles.visualCard}>
+              <a
+                href={architecture}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.visualLink}
+                aria-label="Open full-size BookClub system architecture diagram"
+              >
+                <img
+                  src={architecture}
+                  alt="BookClub system architecture showing AWS EKS, Django, FastAPI, PostgreSQL, Redis, SQS, and monitoring"
+                  className={styles.diagramImage}
+                  loading="lazy"
+                />
+              </a>
+
+              <figcaption className={styles.visualCaption}>
+                System Architecture
+              </figcaption>
+            </figure>
+
+            <figure className={styles.visualCard}>
+              <a
+                href={cicd}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.visualLink}
+                aria-label="Open full-size BookClub CI/CD and GitOps diagram"
+              >
+                <img
+                  src={cicd}
+                  alt="BookClub CI/CD workflow using GitHub Actions, Amazon ECR, deployment pull requests, Argo CD, and Amazon EKS"
+                  className={styles.diagramImage}
+                  loading="lazy"
+                />
+              </a>
+
+              <figcaption className={styles.visualCaption}>
+                CI/CD & GitOps Pipeline
+              </figcaption>
+            </figure>
+          </div>
+
+          {/* Monitoring Dashboards */}
+          <div className={styles.monitoring}>
+            <h4 className={styles.monitoringTitle}>Monitoring Dashboards</h4>
+
+            <div className={styles.dashboardGrid}>
+              <figure className={styles.visualCard}>
+                <a
+                  href={applicationDashboard}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.visualLink}
+                  aria-label="Open full-size application monitoring dashboard"
+                >
+                  <img
+                    src={applicationDashboard}
+                    alt="Grafana application monitoring dashboard"
+                    className={styles.dashboardImage}
+                    loading="lazy"
+                  />
+                </a>
+
+                <figcaption className={styles.visualCaption}>
+                  Application Monitoring
+                </figcaption>
+              </figure>
+
+              <figure className={styles.visualCard}>
+                <a
+                  href={kubernetesDashboard}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.visualLink}
+                  aria-label="Open full-size Kubernetes and database monitoring dashboard"
+                >
+                  <img
+                    src={kubernetesDashboard}
+                    alt="Grafana Kubernetes and PostgreSQL monitoring dashboard"
+                    className={styles.dashboardImage}
+                    loading="lazy"
+                  />
+                </a>
+
+                <figcaption className={styles.visualCaption}>
+                  Kubernetes & Database Monitoring
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
       </div>
     </Section>
   );
